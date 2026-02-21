@@ -11,7 +11,11 @@ $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -v grep >/dev/null && BOOTMO
 umask 022
 
 # Global vars
-TMPDIR=/tmp/ski
+if $BOOTMODE; then
+    TMPDIR=/data/local/tmp/ski
+else
+    TMPDIR=/tmp/ski
+fi
 
 rm -rf $TMPDIR 2>/dev/null
 mkdir -p $TMPDIR
@@ -25,11 +29,11 @@ OUTFD=$2
 ZIPFILE=$3
 
 ui_print() {
-  if $BOOTMODE; then
-    echo "$1"
-  else
-    echo -e "ui_print $1\nui_print" >> /proc/self/fd/$OUTFD
-  fi
+  until [ ! "$1" ]; do
+    echo "ui_print $1
+      ui_print" >> /proc/self/fd/$OUTFD;
+    shift;
+  done;
 }
 
 abort() {

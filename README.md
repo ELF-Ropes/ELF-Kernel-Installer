@@ -1,5 +1,5 @@
 # Simple Kernel Installer
-###### Install Android Kernel in Recovery/Magisk/KernelSU/APatch
+###### Install Android Kernel in Recovery/Magisk/KernelSU/APatch/KernelFlasher
 ---
 * Keep It Simple Stupid.
 ---
@@ -20,7 +20,7 @@
 * Put your dtb (*.dtb) into this package (if you have).
 * Put your dtbo (*dtbo*.img) into this package (if you have).
 * Change The Kernel Name and Devicename in config.conf
-* Flash it in Recovery(3rd-party recoverys only), Magisk(as a module), KernelSU(as a module) or APatch(as a apm module)!
+* Flash it in Recovery(3rd-party recoverys only), Magisk(as a module), KernelSU(as a module), APatch(as a apm module) or KernelFlasher(as a AK3 package)!
 ---
 ##### Credits:
 * [Magisk](https://github.com/topjohnwu/Magisk): We used magiskboot, busybox and some functions from magisk.
