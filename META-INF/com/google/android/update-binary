@@ -8,6 +8,11 @@ BOOTMODE=false;
 ps | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
 $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
 
+KERNELFLASHER=false
+if [ -n "$(ps -ef | grep '[b]usybox ash')" ]; then
+    KERNELFLASHER=true
+fi
+
 umask 022
 
 # Global vars
@@ -29,11 +34,15 @@ OUTFD=$2
 ZIPFILE=$3
 
 ui_print() {
-  until [ ! "$1" ]; do
-    echo "ui_print $1
-      ui_print" >> /proc/self/fd/$OUTFD;
-    shift;
-  done;
+    if $BOOTMODE && [ $KERNELFLASHER == "false" ]; then
+        echo "$1"
+    else
+        until [ ! "$1" ]; do
+            echo "ui_print $1
+                ui_print" >> /proc/self/fd/$OUTFD;
+            shift;
+        done;
+    fi
 }
 
 abort() {

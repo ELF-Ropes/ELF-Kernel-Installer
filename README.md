@@ -1,5 +1,6 @@
 # Simple Kernel Installer
-###### Install Android Kernel in Recovery/Magisk/KernelSU/APatch/KernelFlasher
+##### Flash Android Kernel in Recovery/Magisk/KernelSU/APatch/KernelFlasher.
+##### SKI Anywhere!
 ---
 * Keep It Simple Stupid.
 ---
@@ -23,5 +24,5 @@
 * Flash it in Recovery(3rd-party recoverys only), Magisk(as a module), KernelSU(as a module), APatch(as a apm module) or KernelFlasher(as a AK3 package)!
 ---
 ##### Credits:
-* [Magisk](https://github.com/topjohnwu/Magisk): We used magiskboot, busybox and some functions from magisk.
+* [Magisk](https://github.com/topjohnwu/Magisk): We used magiskboot and some functions from magisk.
 * [Anykernel3](https://github.com/osm0sis/AnyKernel3): We used device check from Anykernel3.

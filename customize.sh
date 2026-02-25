@@ -13,5 +13,5 @@ check_devicename
 # Install kernel/dtb/dtbo
 install
 
-# gpu cache clean
-clean_gpu_cache
+# dalvik cache clean
+clean_dalvik_cache
